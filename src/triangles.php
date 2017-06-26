@@ -12,6 +12,15 @@
             $this->length3 = $length3;
         }
 
+        function isNot()
+        {
+            if($this->length1 + $this->length2 <= $this->length3 || $this->length2 + $this->length3 <= $this->length1 || $this->length1 + $this->length3 <= $this->length2) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         function isEquilateral()
         {
             if($this->length1 === $this->length2 && $this->length1 === $this->length3) {

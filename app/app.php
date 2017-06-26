@@ -43,14 +43,16 @@ $app->get("/new_triangles", function() {
 });
 $app->get("/view_triangle", function() {
   $my_triangle = new Triangle($_GET['length1'], $_GET['length2'], $_GET['length3']);
-  if ($my_triangle->isEquilateral()) {
+  if ($my_triangle->isNot()) {
+      return "<h1>You did not make a triangle</h1>";
+  } else if ($my_triangle->isEquilateral()) {
       return "<h1>You made an equilateral triangle!</h1>";
   } else if ($my_triangle->isIsosceles()) {
       return "<h1>You made an isosceles triangle!</h1>";
   } else if ($my_triangle->isScalene()) {
       return "<h1>You made a scalene triangle!</h1>";
   } else {
-      return "you fail";
+      return "<h1>whatever</h1>";
   }
 });
 return $app;
